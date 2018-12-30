@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calculation PI</title>
+	<script src="./FigureClasses.js"></script>
+	<script src="./calcPi.js"></script>
+	<link rel="stylesheet" type="text/css" href="./calcPi.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="canvas">
+		<canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+	</div>
+
+	<div class="menu">
+		<div class="menu__section">
+			<h3 class="menu__title">Parameters:</h3>
+			<div class="options">
+				<div>
+					<span class="options__title">Size of canvas [px]:</span>
+					<br>
+					<input class="options__input" type="number" id="sizeInput" min="1" value="400">
+				</div>
+
+				<div>
+					<span class="options__title">Number of points:</span>
+					<br>
+					<input class="options__input" type="number" id="numberOfPointsInput" min="1" value="5000">
+					<br>
+					<button class="options__button" onclick="refresh()">Refresh</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="menu__section">
+			<h3 class="menu__title">Output:</h3>
+			<div class="output">
+				<p id="output" class="output__text"></p>
+			</div>
+		</div>
+
+		<div class="menu__section">
+			<h3 class="menu__title">About:</h3>
+			<div class="about">
+				<p class="about__text">
+					Program is calculating the number π (pi) by generating random points on the canvas above.
+				</p>
+				<p class="about__text">
+					Let
+					<b>d</b> be the total number of dots on canvas, and
+					<b>di</b> the number of dots that fall inside the circle. Used math formula: $$π = {4 \cdot {di \over d}}.$$
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			refresh(true);
+		});
+	</script>
+</body>
+
+</html>
